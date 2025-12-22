@@ -1,3 +1,6 @@
+/* ======================
+   Mouse Effect
+   ====================== */
 function customMouse() {
   let mouse = document.querySelector("main");
 
@@ -8,7 +11,9 @@ function customMouse() {
   });
 }
 
-
+/* ======================
+   Card Open / Close Feature
+   ====================== */
 function openCloseCardFeature() {
   let allElems = document.querySelectorAll(".elem");
   let allFullElem = document.querySelectorAll(".fullElems");
@@ -16,22 +21,22 @@ function openCloseCardFeature() {
 
   allElems.forEach((elem) => {
     elem.addEventListener("click", () => {
-      // console.log(elem);
-      // console.log(allFullElem);
-
       allFullElem[elem.id].style.display = "block";
     });
   });
 
   allFullElemBack.forEach((back) => {
-    //   console.log(back.id);
     back.addEventListener("click", () => {
       allFullElem[back.id].style.display = "none";
     });
   });
 }
+
 openCloseCardFeature();
 
+/* ======================
+   Task Data (Local Storage)
+   ====================== */
 var currentTask = [];
 
 if (localStorage.getItem("currentTask")) {
@@ -39,53 +44,55 @@ if (localStorage.getItem("currentTask")) {
 } else {
   console.log("To Do List is empty");
 }
+
+/* ======================
+   Render Tasks
+   ====================== */
 function renderTask() {
   let allTasks = document.querySelector(".all-task");
   let sum = "";
-  // console.log(allTasks);
 
   currentTask.forEach((elem, idx) => {
-    // console.log(elem);
     sum += `<div class="task">
               <h5>${elem.title}<span class="${elem.imp}">*</span></h5>
               <button id="${idx}">Mark as done</button>
             </div>`;
   });
 
-  // console.log(sum);
   allTasks.innerHTML = sum;
   localStorage.setItem("currentTask", JSON.stringify(currentTask));
+
+  document.querySelectorAll(".task button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentTask.splice(btn.id, 1);
+      renderTask();
+    });
+  });
 }
+
 renderTask();
 
+/* ======================
+   Form Elements
+   ====================== */
 let form = document.querySelector(".add-task form");
 let formInput = document.querySelector(".add-task form #task-input");
 let formTextarea = document.querySelector(".add-task form textarea");
 let formCheckbox = document.querySelector(".add-task form #check");
 
+/* ======================
+   Form Submit Event
+   ====================== */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  // console.log(formInput.value);
-  // console.log(formTextarea.value);
-  // console.log(formCheckbox.checked);
 
   currentTask.push({
     title: formInput.value,
     description: formTextarea.value,
     imp: formCheckbox.checked,
   });
-  // console.log(currentTask);
-  renderTask();
-  location.reload();
-});
 
-let markDoneBtn = document.querySelectorAll(".task button");
-
-markDoneBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    currentTask.splice(btn.id, 1);
-    renderTask();
-    location.reload();
-  });
+  formInput.value = "";
+  formTextarea.value = "";
+  formCheckbox.checked = false;
 });

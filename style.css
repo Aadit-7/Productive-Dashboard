@@ -150,10 +150,6 @@ section.allElems {
   scale: 0.85;
 }
 
-.todo-list-fullpage {
-  display: block;
-}
-
 .todo-list-fullpage .todo-container {
   height: 80%;
   width: 100%;
