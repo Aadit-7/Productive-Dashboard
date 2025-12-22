@@ -238,13 +238,17 @@ section.allElems {
 }
 
 .task {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: var(--pri);
   padding: 15px 20px;
   border-radius: 7px;
   margin-bottom: 15px;
+}
+
+.text-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 .task h5 {
@@ -254,6 +258,7 @@ section.allElems {
   justify-content: center;
   align-items: flex-start;
   gap: 7px;
+  margin-bottom: 2px;
 }
 .task h5 span {
   color: red;
@@ -268,6 +273,22 @@ section.allElems {
 .task span.false {
   opacity: 0;
 }
+
+.text-description {
+  font-size: 18px;
+  display: block;
+  width: 80%;
+  overflow: visible;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.task p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--tri2);
+}
+
 .task button {
   color: var(--pri);
   padding: 10px 15px;
