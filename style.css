@@ -1,10 +1,12 @@
+/* ===== Theme color variables used across the layout ===== */
 :root {
   --pri: #f8f4e1;
   --sec: #381c0a;
-  --tri1: #feba17;
+  --tri1: #dfa827;
   --tri2: #74512d;
 }
 
+/* ===== Aeonik font family with light, regular & bold weights ===== */
 @font-face {
   font-family: aeionic;
   font-weight: 200;
@@ -21,6 +23,7 @@
   src: url(./AeonikTRIAL-Regular.otf);
 }
 
+/* ===== Global reset, default font, box sizing and text color ===== */
 * {
   margin: 0;
   padding: 0;
@@ -28,27 +31,52 @@
   font-family: aeionic;
   color: var(--pri);
 }
+
+/* ===== Full viewport sizing setup ===== */
 html,
 body {
   height: 100%;
   width: 100%;
 }
+
 body {
   color: var(--pri);
 }
+/*
 
+:root {
+  --x: 400px;
+  --y: 400px;
+}
+
+main {
+   height: 100%;
+  width: 100%;
+  position: relative;
+  background: radial-gradient(
+    200px at var(--x) var(--y),
+    rgba(244, 101, 101, 0)30%,
+    rgba(0, 0, 0, 0.887)70%
+  );
+  cursor: none;
+}
+*/
+
+/* ===== Main app container with primary background ===== */
 main {
   height: 100%;
   width: 100%;
   background-color: var(--sec);
 }
 
+/* ===== Top navigation bar styling ===== */
 nav {
   height: 60px;
   width: 100%;
   background-color: var(--tri2);
 }
 
+/* ===== Card grid container with flex layout and smooth transition ===== */
 section.allElems {
   height: calc(100% - 60px);
   width: 100%;
@@ -62,6 +90,7 @@ section.allElems {
   transition: all 0.3s ease;
 }
 
+/* ===== Card element with rounded layout, image overlay text and click scale animation ===== */
 .elem {
   height: 400px;
   width: 256px;
@@ -70,23 +99,31 @@ section.allElems {
   overflow: hidden;
   position: relative;
 }
-
 .elem img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
-
 .elem h2 {
   position: absolute;
   right: 3%;
   bottom: 2%;
 }
-
 .elem:active {
   scale: 0.97;
 }
+.elem:hover {
+  box-shadow: 0 0 10px var(--tri2);
+  transition: all ease 0.3s !important;
+  scale: 1.03 !important;
+}
 
+.allElems:has(.elem:hover) .elem {
+  scale: 0.9;
+  transition: all ease 0.3s !important;
+}
+
+/* ===== Fullscreen detail view hidden by default for expanded content ===== */
 .fullElems {
   height: 100%;
   width: 100%;
@@ -97,18 +134,154 @@ section.allElems {
   position: absolute;
 }
 
+/* ===== Back button positioned top-right with press-down interaction ===== */
 .back {
   position: absolute;
-  background-color: var(--tri2);
+  background-color: var(--tri1);
   right: 5%;
   padding: 10px 12px;
   border-radius: 50%;
   border: none;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 25px;
   cursor: pointer;
 }
-
 .back:active {
   scale: 0.85;
+}
+
+.todo-list-fullpage {
+  display: block;
+}
+
+.todo-list-fullpage .todo-container {
+  height: 80%;
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-list-fullpage .todo-container .add-task {
+  height: 100%;
+  width: 33%;
+  background-color: var(--tri2);
+  border-radius: 10px;
+}
+
+.todo-list-fullpage .todo-container .add-task form {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.todo-container .add-task form #task-input {
+  padding: 15px 20px;
+  width: 100%;
+  background-color: var(--pri);
+  color: var(--sec);
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  margin-bottom: 40px;
+}
+.todo-container .add-task form textarea {
+  padding: 15px 20px;
+  width: 100%;
+  background-color: var(--pri);
+  color: var(--sec);
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.todo-container .add-task form .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 5px;
+  font-size: 17px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.add-task form .checkbox #check {
+  scale: 1.7;
+}
+
+.todo-container .add-task form button {
+  padding: 15px 20px;
+  width: 100%;
+  background-color: var(--tri1);
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.todo-container .add-task form button:active {
+  scale: 0.95;
+}
+
+.todo-list-fullpage .todo-container .all-task {
+  height: 100%;
+  width: 65%;
+  background-color: var(--tri2);
+  border-radius: 10px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--pri);
+  padding: 15px 20px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+
+.task h5 {
+  color: var(--sec);
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 7px;
+}
+.task h5 span {
+  color: red;
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.task span.true {
+  opacity: 1;
+}
+.task span.false {
+  opacity: 0;
+}
+.task button {
+  color: var(--pri);
+  padding: 10px 15px;
+  font-size: 17px;
+  font-weight: 500;
+  background-color: green;
+  border-radius: 7px;
+  transition: all ease 0.3s;
+}
+
+.task button:active {
+  scale: 0.9;
 }
