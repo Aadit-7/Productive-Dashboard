@@ -1,14 +1,114 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --pri: #f8f4e1;
+  --sec: #381c0a;
+  --tri1: #feba17;
+  --tri2: #74512d;
 }
-html , body{
-    height: 100%;
-    width: 100%;
+
+@font-face {
+  font-family: aeionic;
+  font-weight: 200;
+  src: url(./AeonikTRIAL-Light.otf);
 }
-body{
-    background-color: black;
-    color: white;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+@font-face {
+  font-family: aeionic;
+  font-weight: 700;
+  src: url(./AeonikTRIAL-Bold.otf);
+}
+@font-face {
+  font-family: aeionic;
+  font-weight: 500;
+  src: url(./AeonikTRIAL-Regular.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: aeionic;
+  color: var(--pri);
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  color: var(--pri);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  background-color: var(--sec);
+}
+
+nav {
+  height: 60px;
+  width: 100%;
+  background-color: var(--tri2);
+}
+
+section.allElems {
+  height: calc(100% - 60px);
+  width: 100%;
+  padding: 40px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.elem {
+  height: 400px;
+  width: 256px;
+  background-color: var(--tri1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.elem img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.elem h2 {
+  position: absolute;
+  right: 3%;
+  bottom: 2%;
+}
+
+.elem:active {
+  scale: 0.97;
+}
+
+.fullElems {
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+  background-color: #381c0a;
+  font-size: 40px;
+  display: none;
+  position: absolute;
+}
+
+.back {
+  position: absolute;
+  background-color: var(--tri2);
+  right: 5%;
+  padding: 10px 12px;
+  border-radius: 50%;
+  border: none;
+  font-weight: 500;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.back:active {
+  scale: 0.85;
 }
