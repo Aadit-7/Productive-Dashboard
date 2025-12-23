@@ -133,7 +133,6 @@ section.allElems {
   display: none;
   position: absolute;
 }
-
 /* ===== Back button positioned top-right with press-down interaction ===== */
 .back {
   position: absolute;
@@ -150,6 +149,7 @@ section.allElems {
   scale: 0.85;
 }
 
+/* ===== Todo list main container layout ===== */
 .todo-list-fullpage .todo-container {
   height: 80%;
   width: 100%;
@@ -159,6 +159,7 @@ section.allElems {
   justify-content: space-between;
 }
 
+/* ===== Add-task panel styling ===== */
 .todo-list-fullpage .todo-container .add-task {
   height: 100%;
   width: 33%;
@@ -166,6 +167,7 @@ section.allElems {
   border-radius: 10px;
 }
 
+/* ===== Add-task form layout ===== */
 .todo-list-fullpage .todo-container .add-task form {
   padding: 30px;
   display: flex;
@@ -173,6 +175,7 @@ section.allElems {
   justify-content: flex-start;
 }
 
+/* ===== Task input and description fields ===== */
 .todo-container .add-task form #task-input {
   padding: 15px 20px;
   width: 100%;
@@ -198,6 +201,7 @@ section.allElems {
   margin-bottom: 20px;
 }
 
+/* ===== Checkbox row inside add-task form ===== */
 .todo-container .add-task form .checkbox {
   display: flex;
   align-items: center;
@@ -228,6 +232,7 @@ section.allElems {
   scale: 0.95;
 }
 
+/* ===== All tasks list container ===== */
 .todo-list-fullpage .todo-container .all-task {
   height: 100%;
   width: 65%;
@@ -267,6 +272,7 @@ section.allElems {
   padding: 2px;
 }
 
+/* ===== Task completion indicator visibility ===== */
 .task span.true {
   opacity: 1;
 }
@@ -303,6 +309,7 @@ section.allElems {
   scale: 0.9;
 }
 
+/* ===== Daily planner main container ===== */
 .daily-planner-fullpage .daily-planner {
   width: 100%;
   height: 85%;
