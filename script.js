@@ -1,3 +1,4 @@
+/* ===== Custom Mouse (But not used) ===== */
 function customMouse() {
   let mouse = document.querySelector("main");
 
@@ -8,6 +9,7 @@ function customMouse() {
   });
 }
 
+/* ===== Card Feature Open/Close ===== */
 function openCloseCardFeature() {
   let allElems = document.querySelectorAll(".elem");
   let allFullElem = document.querySelectorAll(".fullElems");
@@ -31,6 +33,7 @@ function openCloseCardFeature() {
 }
 openCloseCardFeature();
 
+/* ===== To Do list  ===== */
 function toDoList() {
   var currentTask = [];
 
@@ -99,6 +102,7 @@ function toDoList() {
 }
 toDoList();
 
+/* ===== Daily planner  ===== */
 function dailyPlanner() {
   let dayPlannerData = JSON.parse(localStorage.getItem("dayPlannerData")) || {};
 
@@ -111,7 +115,7 @@ function dailyPlanner() {
 
   dailyHours.forEach((elem, idx) => {
     let savedData = dayPlannerData[idx] || "";
-    console.log(dayPlannerData[idx]);
+    // console.log(dayPlannerData[idx]);
 
     hourSum += `<div class="daily-planner-hour">
             <p>${elem}</p>
@@ -132,5 +136,34 @@ function dailyPlanner() {
     });
   });
 }
-
 dailyPlanner();
+
+/* ===== Motivational Quote ===== */
+function motivationalQuote() {
+  function getDate() {
+  let day = document.querySelector(".motivational-fullpage .top p");
+  let myDate = new Date();
+
+  day.innerHTML = myDate.toDateString();
+  // console.log(myDate.toDateString());
+}
+getDate();
+
+  var motivationQuoteContent = document.querySelector(".bottom h2");
+  var motivationAuthor = document.querySelector(".bottom p");
+
+  async function fetchQuote() {
+    // let response = await fetch("https://dummyjson.com/quotes/random");
+    let response = await fetch(
+      "https://motivational-spark-api.vercel.app/api/quotes/random"
+    );
+    let data = await response.json();
+
+    motivationQuoteContent.innerHTML = `" ${data.quote} "`;
+    motivationAuthor.innerHTML = `- ${data.author}`;
+  }
+
+  fetchQuote();
+}
+motivationalQuote();
+

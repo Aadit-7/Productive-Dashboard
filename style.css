@@ -62,6 +62,19 @@ main {
 }
 */
 
+/* ===== Scrollbar styling for overflowed sections ===== */
+.todo-list-fullpage .todo-container .all-task::-webkit-scrollbar,
+.daily-planner-fullpage .daily-planner::-webkit-scrollbar,
+.motivational-fullpage .outter::-webkit-scrollbar {
+  width: 10px;
+}
+.todo-list-fullpage .todo-container .all-task::-webkit-scrollbar-thumb,
+.daily-planner-fullpage .daily-planner::-webkit-scrollbar-thumb,
+.motivational-fullpage .outter::-webkit-scrollbar-thumb {
+  background-color: var(--tri1);
+  border-radius: 10px;
+}
+
 /* ===== Main app container with primary background ===== */
 main {
   height: 100%;
@@ -355,4 +368,80 @@ section.allElems {
   border: none;
   outline: none;
   padding-left: 15px;
+}
+
+/* ===== Motivational Quote ===== */
+.motivational-fullpage {
+  overflow: auto;
+}
+
+.motivational-fullpage .outter {
+  margin-top: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===== Motivational Quote inner container ===== */
+
+.motivational-fullpage .inner {
+  background-color: var(--tri2);
+  width: 80%;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 19px 19px 50px var(--tri1);
+}
+
+/* ===== Motivational Quote inner container top components ===== */
+
+.motivational-fullpage .inner .top {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.motivational-fullpage .inner .top h2 {
+  font-size: 40px;
+  color: var(--sec);
+  text-transform: uppercase;
+}
+.motivational-fullpage .inner .top p {
+  font-size: 30px;
+  /* text-transform: uppercase; */
+  color: var(--sec);
+}
+
+/* ===== Motivational Quote inner container bottom components  ===== */
+
+.motivational-fullpage .inner .bottom {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  justify-content: space-between;
+  border-radius: 12px;
+  position: relative;
+}
+
+.motivational-fullpage .inner .bottom h2 {
+  font-size: 60px;
+  margin: 10px;
+  padding-bottom: 60px;
+  color: var(--pri);
+  text-transform: uppercase;
+  word-spacing: 10px;
+  line-height: 70px;
+  text-shadow: 7px 7px 1px var(--sec);
+}
+.motivational-fullpage .inner .bottom p {
+  font-size: 30px;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  color: var(--pri);
 }
