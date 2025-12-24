@@ -241,3 +241,73 @@ function pomodoroTimmer() {
   resetBtn.addEventListener("click", resetTimmer);
 }
 pomodoroTimmer();
+
+/* ===== Daily Goals ===== */
+var currentTask = [];
+
+// 🔹 NEW localStorage key
+const STORAGE_KEY = "dailyGoalsTask";
+
+if (localStorage.getItem(STORAGE_KEY)) {
+  currentTask = JSON.parse(localStorage.getItem(STORAGE_KEY));
+} else {
+  console.log("To Do List is empty");
+}
+
+function renderTask() {
+  let allTasks = document.querySelector(".daily-goals-all-task");
+  let sum = "";
+
+  currentTask.forEach((elem, idx) => {
+    sum += `<div class="daily-goals-task">
+            <div class="daily-goals-text-content">
+            <h5>${elem.title}<span class="${elem.imp}">*</span></h5>
+            <div class="daily-goals-text-description">
+              <p>${elem.description}</p>
+              </div>
+            <button id="${idx}">Mark as done</button>
+            </div>
+
+              </div>`;
+  });
+
+  allTasks.innerHTML = sum;
+
+  // 🔹 store in NEW localStorage
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(currentTask));
+
+  document.querySelectorAll(".daily-goals-task button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentTask.splice(btn.id, 1);
+      renderTask();
+    });
+  });
+}
+renderTask();
+
+let form = document.querySelector(".daily-goals-add-task form");
+let formInput = document.querySelector(
+  ".daily-goals-add-task form #daily-goals-task-input"
+);
+let formTextarea = document.querySelector(
+  ".daily-goals-add-task form textarea"
+);
+let formCheckbox = document.querySelector(
+  ".daily-goals-add-task form #daily-goals-check"
+);
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  currentTask.push({
+    title: formInput.value,
+    description: formTextarea.value,
+    imp: formCheckbox.checked,
+  });
+
+  renderTask();
+
+  formInput.value = "";
+  formTextarea.value = "";
+  formCheckbox.checked = false;
+});

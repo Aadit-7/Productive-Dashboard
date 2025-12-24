@@ -119,7 +119,31 @@
 
       <section class="fullElems daily-goals-fullpage">
         <button class="back" id="4"><i class="ri-close-fill"></i></button>
-        Daily Goals
+        <h2>Your personaliesd To Do List</h2>
+
+        <div class="daily-goals-container">
+          <div class="daily-goals-add-task">
+            <form>
+              <input
+                id="daily-goals-task-input"
+                type="text"
+                placeholder="Enter Task"
+                required
+              />
+              <textarea
+                placeholder="Enter Details"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <div class="daily-goals-checkbox">
+                <input type="checkbox" name="" id="daily-goals-check" />
+                <label for="daily-goals-check">Mark as Important</label>
+              </div>
+              <button>Add Task</button>
+            </form>
+          </div>
+          <div class="daily-goals-all-task"></div>
+        </div>
       </section>
     </main>
 
