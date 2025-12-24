@@ -41,6 +41,7 @@ body {
 
 body {
   color: var(--pri);
+  background-color: var(--sec);
 }
 /*
 
@@ -66,13 +67,21 @@ main {
 .todo-list-fullpage .todo-container .all-task::-webkit-scrollbar,
 .daily-planner-fullpage .daily-planner::-webkit-scrollbar,
 .motivational-fullpage .outter::-webkit-scrollbar,
-.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar {
+.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar,
+.daily-goals-text-description::-webkit-scrollbar,
+.daily-goals-fullpage
+  .daily-goals-container
+  .daily-goals-all-task::-webkit-scrollbar {
   width: 10px;
 }
 .todo-list-fullpage .todo-container .all-task::-webkit-scrollbar-thumb,
 .daily-planner-fullpage .daily-planner::-webkit-scrollbar-thumb,
 .motivational-fullpage .outter::-webkit-scrollbar-thumb,
-.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar-thumb {
+.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar-thumb,
+.daily-goals-text-description::-webkit-scrollbar-thumb,
+.daily-goals-fullpage
+  .daily-goals-container
+  .daily-goals-all-task::-webkit-scrollbar-thumb {
   background-color: var(--tri1);
   border-radius: 10px;
 }
@@ -84,30 +93,131 @@ main {
   background-color: var(--sec);
 }
 
-/* ===== Top navigation bar styling ===== */
+/* ===== Header ===== */
+
 nav {
-  height: 60px;
   width: 100%;
+  /* height: 15%; */
   background-color: var(--tri2);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 20px;
+}
+nav h1 {
+  text-transform: capitalize;
+  font-size: 50px;
+  text-shadow: 5px 5px 2px var(--sec);
+}
+
+nav button {
+  background-color: var(--tri1);
+  font-size: 25px;
+  font-weight: 600;
+  padding: 7px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: all ease 0.3s;
+}
+
+nav button:active {
+  scale: 0.95;
+}
+/* ===== Header ===== */
+
+header {
+  width: 100%;
+  /* height: 50%; */
+  background-image: url(https://images.unsplash.com/photo-1717361279773-b2e7ee713d2e?q=80&w=3869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+  /* background-color: var(--tri2); */
+  color: var(--pri);
+  margin-bottom: 20px;
+  border-radius: 15px;
+  padding:7px 15px ;
+}
+
+header h1{
+  font-size: 40px;
+}
+
+header .header{
+  /* background-color: rgba(255, 0, 0, 0.796); */
+  border-radius: 7px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+justify-content: space-between;
+}
+
+header .header .header1{
+  font-size: 17px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+
+header .header .header1 h2{
+  font-size: 50px;
+}
+
+header .header .header1 h3{
+  font-size: 15px;
+  font-weight: 200;
+}
+header .header .header2{
+  font-size: 17px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 5px;
+}
+header .header .header2 h3{
+  font-size: 70px;
+}
+header .header .header2 h3#day{
+  font-size: 50px;
+  font-weight: 500;
+}
+header .header .header3{
+  display: flex;
+  gap: 15px;
+}
+header .header .header3 h2{
+  font-size: 25px;
+  font-weight: 200;
+  text-transform: uppercase;
 }
 
 /* ===== Card grid container with flex layout and smooth transition ===== */
-section.allElems {
-  height: calc(100% - 60px);
-  width: 100%;
-  padding: 40px;
-  padding-top: 20px;
+.allfeatures {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 40px;
+}
+
+section.allElems {
+  height: 70%;
+  width: 100%;
+  padding: 40px;
+  padding-top: 20px;
   position: absolute;
   transition: all 0.3s ease;
 }
 
 /* ===== Card element with rounded layout, image overlay text and click scale animation ===== */
 .elem {
-  height: 400px;
+  height: 350px;
   width: 256px;
   background-color: var(--tri1);
   border-radius: 20px;
@@ -123,6 +233,7 @@ section.allElems {
   position: absolute;
   right: 3%;
   bottom: 2%;
+  color: var(--pri);
 }
 .elem:active {
   scale: 0.97;
@@ -143,7 +254,7 @@ section.allElems {
   height: 100%;
   width: 100%;
   padding: 40px;
-  background-color: #381c0a;
+  background-color: var(--sec);
   font-size: 40px;
   display: none;
   position: absolute;
@@ -509,7 +620,6 @@ section.allElems {
   box-shadow: 0 0 0px var(--tri2);
 }
 
-
 /* ===== Daily Goals  ===== */
 
 .daily-goals-fullpage .daily-goals-container {
@@ -521,7 +631,7 @@ section.allElems {
   justify-content: space-between;
 }
 
-/* ===== Add-task panel styling ===== */
+/* ===== Daily Goals Add-task panel styling ===== */
 .daily-goals-fullpage .daily-goals-container .daily-goals-add-task {
   height: 100%;
   width: 33%;
@@ -530,7 +640,7 @@ section.allElems {
   overflow: auto;
 }
 
-/* ===== Add-task form layout ===== */
+/* ===== Daily Goals Add-task form layout ===== */
 .daily-goals-fullpage .daily-goals-container .daily-goals-add-task form {
   padding: 30px;
   display: flex;
@@ -538,8 +648,12 @@ section.allElems {
   justify-content: flex-start;
 }
 
-/* ===== Task input and description fields ===== */
-.daily-goals-fullpage .daily-goals-container .daily-goals-add-task form #daily-goals-task-input {
+/* ===== Daily Goals Task input and description fields ===== */
+.daily-goals-fullpage
+  .daily-goals-container
+  .daily-goals-add-task
+  form
+  #daily-goals-task-input {
   padding: 15px 20px;
   width: 100%;
   background-color: var(--pri);
@@ -564,7 +678,7 @@ section.allElems {
   margin-bottom: 20px;
 }
 
-/* ===== Checkbox row inside add-task form ===== */
+/* ===== Daily Goals Checkbox row inside add-task form ===== */
 .daily-goals-container .daily-goals-add-task form .daily-goals-checkbox {
   display: flex;
   align-items: center;
@@ -596,7 +710,7 @@ section.allElems {
   scale: 0.95;
 }
 
-/* ===== All tasks list container ===== */
+/* ===== Daily Goals all tasks list container ===== */
 .daily-goals-fullpage .daily-goals-container .daily-goals-all-task {
   height: 100%;
   width: 65%;
@@ -612,16 +726,13 @@ section.allElems {
 
 .daily-goals-task {
   background-color: var(--sec);
-  /* background-color: red; */
   padding: 15px 20px;
   border-radius: 7px;
   margin-bottom: 15px;
   width: 49%;
-  height: 50%;
- display: flex;
-  overflow: visible;
-
-
+  height: 46%;
+  display: flex;
+  overflow: hidden;
 }
 
 .daily-goals-text-content {
@@ -629,11 +740,12 @@ section.allElems {
   width: 100%;
   display: flex;
   /* justify-content: space-between; */
-  align-items:flex-start;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
   position: relative;
   overflow: auto;
+  overflow: hidden;
 }
 
 .daily-goals-task h5 {
@@ -646,14 +758,16 @@ section.allElems {
   justify-content: center;
   align-items: flex-start;
   gap: 7px;
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
   text-transform: uppercase;
 }
 .daily-goals-task h5 span {
-  color: red;
-  font-size: 30px;
-  border-radius: 50%;
-  padding: 2px;
+  color: var(--pri);
+  background-color: red;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 3px 7px;
+  text-transform: capitalize;
 }
 
 /* ===== Task completion indicator visibility ===== */
@@ -666,13 +780,14 @@ section.allElems {
 
 .daily-goals-text-description {
   font-size: 18px;
-  width:100%;
-  position: absolute;
+  width: 100%;
+  height: 30%;
   top: 20%;
-  overflow: hidden;
+  overflow: auto;
   word-wrap: break-word;
   white-space: normal;
-  padding: 5px 8px;
+  padding: 2px 8px;
+  /* background-color: wheat; */
 }
 
 .daily-goals-task p {
@@ -680,20 +795,19 @@ section.allElems {
   font-weight: 200;
   color: var(--pri);
   line-height: 20px;
-
 }
 
 .daily-goals-task button {
-  color: var(--pri);
-  padding: 10px 15px;
-  font-size: 17px;
+  color: var(--sec);
+  padding: 2px 10px;
+  font-size: 20px;
   font-weight: 500;
   background-color: var(--tri1);
-  border-radius: 7px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all ease 0.3s;
   position: absolute;
-  bottom: 0%;
+  bottom: 1%;
   right: 1%;
 }
 
