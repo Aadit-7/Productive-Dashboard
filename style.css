@@ -65,12 +65,14 @@ main {
 /* ===== Scrollbar styling for overflowed sections ===== */
 .todo-list-fullpage .todo-container .all-task::-webkit-scrollbar,
 .daily-planner-fullpage .daily-planner::-webkit-scrollbar,
-.motivational-fullpage .outter::-webkit-scrollbar {
+.motivational-fullpage .outter::-webkit-scrollbar,
+.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar {
   width: 10px;
 }
 .todo-list-fullpage .todo-container .all-task::-webkit-scrollbar-thumb,
 .daily-planner-fullpage .daily-planner::-webkit-scrollbar-thumb,
-.motivational-fullpage .outter::-webkit-scrollbar-thumb {
+.motivational-fullpage .outter::-webkit-scrollbar-thumb,
+.todo-list-fullpage .todo-container .add-task::-webkit-scrollbar-thumb {
   background-color: var(--tri1);
   border-radius: 10px;
 }
@@ -178,6 +180,7 @@ section.allElems {
   width: 33%;
   background-color: var(--tri2);
   border-radius: 10px;
+  overflow: auto;
 }
 
 /* ===== Add-task form layout ===== */
@@ -238,6 +241,7 @@ section.allElems {
   border-radius: 7px;
   border: none;
   outline: none;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -315,6 +319,7 @@ section.allElems {
   font-weight: 500;
   background-color: green;
   border-radius: 7px;
+  cursor: pointer;
   transition: all ease 0.3s;
 }
 
@@ -444,4 +449,63 @@ section.allElems {
   bottom: 3%;
   right: 3%;
   color: var(--pri);
+}
+
+/* ===== Pomodoro Timmer  ===== */
+
+.pomodoro-fullpage {
+  display: block;
+  position: relative;
+}
+.pomodoro-fullpage h2 {
+  font-size: 50px;
+}
+.pomodoro-fullpage h3 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: var(--tri1);
+  font-size: 45px;
+  text-shadow: 5px 5px 1px var(--tri2);
+  text-transform: uppercase;
+}
+
+.pomodoro-fullpage .container {
+  /* background-color: var(--tri2); */
+  width: 30%;
+  padding: 20px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pomodoro-fullpage .container h2 {
+  font-size: 160px;
+  margin-bottom: 10px;
+}
+.pomodoro-fullpage .container .btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pomodoro-fullpage .container .btns button {
+  background-color: var(--tri1);
+  color: var(--pri);
+  font-size: 30px;
+  font-weight: 600;
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  box-shadow: 4px 4px 1px var(--tri2);
+}
+
+.pomodoro-fullpage .container .btns button:active {
+  scale: 0.9;
+  box-shadow: 0 0 0px var(--tri2);
 }

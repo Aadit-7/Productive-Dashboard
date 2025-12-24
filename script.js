@@ -141,13 +141,13 @@ dailyPlanner();
 /* ===== Motivational Quote ===== */
 function motivationalQuote() {
   function getDate() {
-  let day = document.querySelector(".motivational-fullpage .top p");
-  let myDate = new Date();
+    let day = document.querySelector(".motivational-fullpage .top p");
+    let myDate = new Date();
 
-  day.innerHTML = myDate.toDateString();
-  // console.log(myDate.toDateString());
-}
-getDate();
+    day.innerHTML = myDate.toDateString();
+    // console.log(myDate.toDateString());
+  }
+  getDate();
 
   var motivationQuoteContent = document.querySelector(".bottom h2");
   var motivationAuthor = document.querySelector(".bottom p");
@@ -159,7 +159,7 @@ getDate();
     );
     let data = await response.json();
 
-    motivationQuoteContent.innerHTML = `" ${data.quote} "`;
+    motivationQuoteContent.innerHTML = `" ${data.quote}"`;
     motivationAuthor.innerHTML = `- ${data.author}`;
   }
 
@@ -167,3 +167,77 @@ getDate();
 }
 motivationalQuote();
 
+/* ===== Pomodoro Timmer ===== */
+
+function pomodoroTimmer() {
+  let totalTime = 25 * 60;
+  let timmer = document.querySelector(".pomodoro-fullpage .container h2");
+
+  function showTime() {
+    let min = Math.floor(totalTime / 60);
+    let sec = totalTime % 60;
+
+    timmer.innerHTML = `${String(min).padStart("2", "0")}:${String(
+      sec
+    ).padStart("2", "0")}`;
+  }
+  let id = null;
+  let session = true;
+  let startBtn = document.querySelector(".pomodoro-fullpage .container .start");
+  let pauseBtn = document.querySelector(".pomodoro-fullpage .container .pause");
+  let resetBtn = document.querySelector(".pomodoro-fullpage .container .reset");
+  let workSession = document.querySelector(".pomodoro-fullpage h3");
+
+  function startTimer() {
+    clearInterval(id);
+
+    if (session) {
+      id = setInterval(() => {
+        if (totalTime) {
+          totalTime--;
+          showTime();
+        } else {
+          session = false;
+          clearInterval(id);
+          timmer.innerHTML = `05:00`;
+          totalTime = 5 * 60;
+          workSession.innerHTML = `take a small break`;
+        }
+      }, 1000);
+    } else {
+      id = setInterval(() => {
+        if (totalTime) {
+          totalTime--;
+          showTime();
+        } else {
+          session = true;
+          clearInterval(id);
+          timmer.innerHTML = `25:00`;
+          totalTime = 25 * 60;
+          workSession.innerHTML = `do work`;
+        }
+      }, 1000);
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(id);
+  }
+
+  function resetTimmer() {
+    clearInterval(id);
+
+    if (session) {
+      totalTime = 25 * 60;
+    } else {
+      totalTime = 5 * 60;
+    }
+
+    showTime();
+  }
+
+  startBtn.addEventListener("click", startTimer);
+  pauseBtn.addEventListener("click", pauseTimer);
+  resetBtn.addEventListener("click", resetTimmer);
+}
+pomodoroTimmer();
