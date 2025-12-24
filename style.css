@@ -470,7 +470,7 @@ section.allElems {
   text-shadow: 5px 5px 1px var(--tri2);
   text-transform: uppercase;
 }
-
+  
 .pomodoro-fullpage .container {
   /* background-color: var(--tri2); */
   width: 30%;
