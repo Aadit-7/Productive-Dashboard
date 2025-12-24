@@ -376,41 +376,46 @@ function showDataOnLandingPage() {
 }
 showDataOnLandingPage();
 
-let themeBtn = document.querySelector("nav button");
-let rootElem = document.documentElement;
-let flag = 0;
-themeBtn.addEventListener("click", () => {
-  if (flag == 0) {
-    rootElem.style.setProperty("--pri", "#d1dce3ff");
-    rootElem.style.setProperty("--sec", "#14274E");
-    rootElem.style.setProperty("--tri1", "#394867");
-    rootElem.style.setProperty("--tri2", "#9BA4B4");
-    flag = 1;
-  } else if (flag == 1) {
-    rootElem.style.setProperty("--pri", "#603f5eff");
-    rootElem.style.setProperty("--sec", "#b02edbff");
-    rootElem.style.setProperty("--tri1", "#ddd6e0");
-    rootElem.style.setProperty("--tri2", "#D78FEE");
-    flag = 2;
-  } else if (flag == 2) {
-    rootElem.style.setProperty("--pri", "#E8FFD7");
-    rootElem.style.setProperty("--sec", "#3E5F44");
-    rootElem.style.setProperty("--tri1", "#5E936C");
-    rootElem.style.setProperty("--tri2", "#93DA97");
-    flag = 3;
-  } else if (flag == 3) {
-    rootElem.style.setProperty("--pri", "#f8d79fff");
-    rootElem.style.setProperty("--sec", "#9d4215ff");
-    rootElem.style.setProperty("--tri1", "#e97339ff");
-    rootElem.style.setProperty("--tri2", "#da9965ff");
-    flag = 4;
-  } else if (flag == 4) {
-    rootElem.style.setProperty("--pri", "#f8f4e1");
-    rootElem.style.setProperty("--sec", "#381c0a");
-    rootElem.style.setProperty("--tri1", "#dfa827");
-    rootElem.style.setProperty("--tri2", "#74512d");
-    flag = 5;
-  } else {
-    flag = 0;
-  }
-});
+/* ===== Theme Changing ===== */
+
+function changeTheme() {
+  let themeBtn = document.querySelector("nav button");
+  let rootElem = document.documentElement;
+  let flag = 0;
+  themeBtn.addEventListener("click", () => {
+    if (flag == 0) {
+      rootElem.style.setProperty("--pri", "#d1dce3ff");
+      rootElem.style.setProperty("--sec", "#14274E");
+      rootElem.style.setProperty("--tri1", "#394867");
+      rootElem.style.setProperty("--tri2", "#9BA4B4");
+      flag = 1;
+    } else if (flag == 1) {
+      rootElem.style.setProperty("--pri", "#603f5eff");
+      rootElem.style.setProperty("--sec", "#b02edbff");
+      rootElem.style.setProperty("--tri1", "#ddd6e0");
+      rootElem.style.setProperty("--tri2", "#D78FEE");
+      flag = 2;
+    } else if (flag == 2) {
+      rootElem.style.setProperty("--pri", "#E8FFD7");
+      rootElem.style.setProperty("--sec", "#3E5F44");
+      rootElem.style.setProperty("--tri1", "#5E936C");
+      rootElem.style.setProperty("--tri2", "#93DA97");
+      flag = 3;
+    } else if (flag == 3) {
+      rootElem.style.setProperty("--pri", "#f8d79fff");
+      rootElem.style.setProperty("--sec", "#9d4215ff");
+      rootElem.style.setProperty("--tri1", "#e97339ff");
+      rootElem.style.setProperty("--tri2", "#da9965ff");
+      flag = 4;
+    } else if (flag == 4) {
+      rootElem.style.setProperty("--pri", "#f8f4e1");
+      rootElem.style.setProperty("--sec", "#381c0a");
+      rootElem.style.setProperty("--tri1", "#dfa827");
+      rootElem.style.setProperty("--tri2", "#74512d");
+      flag = 5;
+    } else {
+      flag = 0;
+    }
+  });
+}
+changeTheme();

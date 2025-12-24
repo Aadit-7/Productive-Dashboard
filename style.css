@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* ===== Theme color variables used across the layout ===== */
 :root {
   --pri: #f8f4e1;
@@ -27,6 +34,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: aeionic;
   color: var(--pri);
@@ -101,10 +109,16 @@ nav {
   background-color: var(--tri2);
   margin-bottom: 20px;
   border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  padding:10px 20px;
+  padding: 10px 20px;
 }
 nav h1 {
   text-transform: capitalize;
@@ -120,6 +134,8 @@ nav button {
   border-radius: 10px;
   border: none;
   outline: none;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -133,66 +149,90 @@ header {
   /* height: 50%; */
   background-image: url(https://images.unsplash.com/photo-1717361279773-b2e7ee713d2e?q=80&w=3869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   /* background-color: var(--tri2); */
   color: var(--pri);
   margin-bottom: 20px;
   border-radius: 15px;
-  padding:7px 15px ;
+  padding: 7px 15px;
 }
 
-header h1{
+header h1 {
   font-size: 40px;
 }
 
-header .header{
+header .header {
   /* background-color: rgba(255, 0, 0, 0.796); */
   border-radius: 7px;
   padding: 5px 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
-justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
-header .header .header1{
+header .header .header1 {
   font-size: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 2px;
 }
 
-header .header .header1 h2{
+header .header .header1 h2 {
   font-size: 50px;
 }
 
-header .header .header1 h3{
+header .header .header1 h3 {
   font-size: 15px;
   font-weight: 200;
 }
-header .header .header2{
+header .header .header2 {
   font-size: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 5px;
 }
-header .header .header2 h3{
+header .header .header2 h3 {
   font-size: 70px;
 }
-header .header .header2 h3#day{
+header .header .header2 h3#day {
   font-size: 50px;
   font-weight: 500;
 }
-header .header .header3{
+header .header .header3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 15px;
 }
-header .header .header3 h2{
+header .header .header3 h2 {
   font-size: 25px;
   font-weight: 200;
   text-transform: uppercase;
@@ -200,8 +240,13 @@ header .header .header3 h2{
 
 /* ===== Card grid container with flex layout and smooth transition ===== */
 .allfeatures {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   gap: 40px;
 }
@@ -212,6 +257,8 @@ section.allElems {
   padding: 40px;
   padding-top: 20px;
   position: absolute;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -227,6 +274,7 @@ section.allElems {
 .elem img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .elem h2 {
@@ -239,13 +287,18 @@ section.allElems {
   scale: 0.97;
 }
 .elem:hover {
+  -webkit-box-shadow: 0 0 10px var(--tri2);
   box-shadow: 0 0 10px var(--tri2);
+  -webkit-transition: all ease 0.3s !important;
+  -o-transition: all ease 0.3s !important;
   transition: all ease 0.3s !important;
   scale: 1.03 !important;
 }
 
 .allElems:has(.elem:hover) .elem {
   scale: 0.9;
+  -webkit-transition: all ease 0.3s !important;
+  -o-transition: all ease 0.3s !important;
   transition: all ease 0.3s !important;
 }
 
@@ -280,8 +333,14 @@ section.allElems {
   height: 80%;
   width: 100%;
   margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -297,8 +356,15 @@ section.allElems {
 /* ===== Add-task form layout ===== */
 .todo-list-fullpage .todo-container .add-task form {
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
@@ -330,8 +396,14 @@ section.allElems {
 
 /* ===== Checkbox row inside add-task form ===== */
 .todo-container .add-task form .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   padding: 0px 5px;
   font-size: 17px;
@@ -353,6 +425,8 @@ section.allElems {
   border: none;
   outline: none;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -378,8 +452,14 @@ section.allElems {
 }
 
 .text-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
 }
@@ -387,8 +467,14 @@ section.allElems {
 .task h5 {
   color: var(--sec);
   font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   gap: 7px;
   margin-bottom: 2px;
@@ -431,6 +517,8 @@ section.allElems {
   background-color: green;
   border-radius: 7px;
   cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -446,17 +534,30 @@ section.allElems {
   background-color: var(--tri2);
   border-radius: 10px;
   padding: 15px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   overflow: auto;
 }
 
 .daily-planner-fullpage .daily-planner .daily-planner-hour {
   background-color: var(--sec);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 49.5%;
   padding: 15px 10px;
@@ -494,8 +595,14 @@ section.allElems {
 .motivational-fullpage .outter {
   margin-top: 70px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding: 20px;
 }
@@ -507,15 +614,22 @@ section.allElems {
   width: 80%;
   padding: 20px;
   border-radius: 15px;
+  -webkit-box-shadow: 19px 19px 50px var(--tri1);
   box-shadow: 19px 19px 50px var(--tri1);
 }
 
 /* ===== Motivational Quote inner container top components ===== */
 
 .motivational-fullpage .inner .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 5px 15px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -535,9 +649,15 @@ section.allElems {
 /* ===== Motivational Quote inner container bottom components  ===== */
 
 .motivational-fullpage .inner .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 10px 15px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   border-radius: 12px;
   position: relative;
@@ -574,6 +694,8 @@ section.allElems {
   position: absolute;
   top: 20%;
   left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   color: var(--tri1);
   font-size: 45px;
@@ -588,6 +710,8 @@ section.allElems {
   position: absolute;
   top: 45%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
@@ -596,8 +720,14 @@ section.allElems {
   margin-bottom: 10px;
 }
 .pomodoro-fullpage .container .btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   gap: 10px;
 }
@@ -610,13 +740,17 @@ section.allElems {
   border-radius: 10px;
   border: none;
   outline: none;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
   cursor: pointer;
+  -webkit-box-shadow: 4px 4px 1px var(--tri2);
   box-shadow: 4px 4px 1px var(--tri2);
 }
 
 .pomodoro-fullpage .container .btns button:active {
   scale: 0.9;
+  -webkit-box-shadow: 0 0 0px var(--tri2);
   box-shadow: 0 0 0px var(--tri2);
 }
 
@@ -626,8 +760,14 @@ section.allElems {
   height: 80%;
   width: 100%;
   margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -643,8 +783,15 @@ section.allElems {
 /* ===== Daily Goals Add-task form layout ===== */
 .daily-goals-fullpage .daily-goals-container .daily-goals-add-task form {
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
@@ -680,8 +827,14 @@ section.allElems {
 
 /* ===== Daily Goals Checkbox row inside add-task form ===== */
 .daily-goals-container .daily-goals-add-task form .daily-goals-checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   padding: 0px 5px;
   font-size: 17px;
@@ -703,6 +856,8 @@ section.allElems {
   border: none;
   outline: none;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -718,9 +873,16 @@ section.allElems {
   border-radius: 10px;
   padding: 20px;
   overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -731,6 +893,8 @@ section.allElems {
   margin-bottom: 15px;
   width: 49%;
   height: 46%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
 }
@@ -738,9 +902,16 @@ section.allElems {
 .daily-goals-text-content {
   /* background-color: blue; */
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   /* justify-content: space-between; */
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   /* gap: 10px; */
   position: relative;
@@ -752,10 +923,18 @@ section.allElems {
   color: var(--pri);
   /* background-color: black; */
   font-size: 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 5px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   gap: 7px;
   /* margin-bottom: 2px; */
@@ -805,6 +984,8 @@ section.allElems {
   background-color: var(--tri1);
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
   position: absolute;
   bottom: 1%;
