@@ -322,7 +322,7 @@ function showDataOnLandingPage() {
 
   async function fetchWeather() {
     let responce = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
+      `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
     );
 
     let res = await responce.json();
