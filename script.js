@@ -260,12 +260,12 @@ function dailyGoals() {
 
     currentTask.forEach((elem, idx) => {
       sum += `<div class="daily-goals-task">
-            <div class="daily-goals-text-content">
-            <h5>${elem.title}<span class="${elem.imp}">imp</span></h5>
-            <div class="daily-goals-text-description">
+              <div class="daily-goals-text-content">
+              <h5>${elem.title}<span class="${elem.imp}">imp</span>  <button id="${idx}">Done</button></h5>
+              <div div class="daily-goals-text-description">
               <p>${elem.description}</p>
               </div>
-            <button id="${idx}">Done</button>
+
             </div>
 
               </div>`;
@@ -369,8 +369,8 @@ function showDataOnLandingPage() {
 
     document.querySelector(".header .header1 #weather").innerHTML = `${weat}`;
     document.querySelector(".header .header2 #day").innerHTML = `${date} `;
-    document.querySelector(".header .header2 #state").innerHTML = `${st}`;
-    document.querySelector(".header .header2 #dist").innerHTML = `${dist} ,`;
+    document.querySelector(".header .header2 #state").innerHTML = `(${st})`;
+    document.querySelector(".header .header2 #dist").innerHTML = `${dist},`;
   }
   fetchWeather();
 }
@@ -379,7 +379,7 @@ showDataOnLandingPage();
 /* ===== Theme Changing ===== */
 
 function changeTheme() {
-  let themeBtn = document.querySelector("nav button");
+  let themeBtn = document.querySelector("nav .changeBtn");
   let rootElem = document.documentElement;
   let flag = 0;
   themeBtn.addEventListener("click", () => {
@@ -419,3 +419,11 @@ function changeTheme() {
   });
 }
 changeTheme();
+
+function explore() {
+  let explore = document.querySelector("nav .explore");
+  explore.addEventListener("click", () => {
+    console.log(explore);
+  });
+}
+explore();
