@@ -155,7 +155,7 @@ function motivationalQuote() {
   async function fetchQuote() {
     // let response = await fetch("https://dummyjson.com/quotes/random");
     let response = await fetch(
-      "https://motivational-spark-api.vercel.app/api/quotes/random"
+      "https://motivational-spark-api.vercel.app/api/quotes/random",
     );
     let data = await response.json();
 
@@ -177,7 +177,7 @@ function pomodoroTimmer() {
     let sec = totalTime % 60;
 
     timmer.innerHTML = `${String(min).padStart("2", "0")}:${String(
-      sec
+      sec,
     ).padStart("2", "0")}`;
   }
   let id = null;
@@ -287,13 +287,13 @@ function dailyGoals() {
 
   let form = document.querySelector(".daily-goals-add-task form");
   let formInput = document.querySelector(
-    ".daily-goals-add-task form #daily-goals-task-input"
+    ".daily-goals-add-task form #daily-goals-task-input",
   );
   let formTextarea = document.querySelector(
-    ".daily-goals-add-task form textarea"
+    ".daily-goals-add-task form textarea",
   );
   let formCheckbox = document.querySelector(
-    ".daily-goals-add-task form #daily-goals-check"
+    ".daily-goals-add-task form #daily-goals-check",
   );
 
   form.addEventListener("submit", (e) => {
@@ -322,7 +322,7 @@ function showDataOnLandingPage() {
 
   async function fetchWeather() {
     let responce = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`
+      `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`,
     );
 
     let res = await responce.json();
@@ -357,15 +357,12 @@ function showDataOnLandingPage() {
     // console.log(weather, state,dist ,temp, humidity, precipitation, wind);
 
     document.querySelector(".header .header1 #temp").innerHTML = `${temp} °C`;
-    document.querySelector(
-      ".header .header1 #hum"
-    ).innerHTML = `Humidity &nbsp; ${humi} %`;
-    document.querySelector(
-      ".header .header1 #preci"
-    ).innerHTML = `Precipitation &nbsp; ${preci} %`;
-    document.querySelector(
-      ".header .header1 #wind"
-    ).innerHTML = `Wind &nbsp; ${wi} km/h`;
+    document.querySelector(".header .header1 #hum").innerHTML =
+      `Humidity &nbsp; ${humi} %`;
+    document.querySelector(".header .header1 #preci").innerHTML =
+      `Precipitation &nbsp; ${preci} %`;
+    document.querySelector(".header .header1 #wind").innerHTML =
+      `Wind &nbsp; ${wi} km/h`;
 
     document.querySelector(".header .header1 #weather").innerHTML = `${weat}`;
     document.querySelector(".header .header2 #day").innerHTML = `${date} `;
